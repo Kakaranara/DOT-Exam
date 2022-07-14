@@ -1,4 +1,5 @@
 import 'package:dot_test/constant/colors.dart';
+import 'package:dot_test/shared_widget/category_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -33,6 +34,9 @@ class HomePage extends StatelessWidget {
                       color: ThemeColor.green(),
                       text: "Pengeluaranmu bulan ini",
                       amount: 0),
+                ),
+                const SizedBox(
+                  width: 20,
                 )
               ],
             ),
@@ -48,11 +52,11 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          _categoryBox(),
-          _categoryBox(),
-          _categoryBox(),
-          _categoryBox()
+        children: const [
+          CategoryBox(),
+          CategoryBox(),
+          CategoryBox(),
+          CategoryBox(),
         ],
       ),
     );
@@ -71,9 +75,11 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("makanan"),
+              CircleAvatar(
+                child: Image.asset("res/img/pizza.png"),
+              ),
               Text("Makanan"),
-              Text("harga"),
+              Text("Rp 70.000"),
             ],
           ),
         ),
@@ -84,7 +90,7 @@ class HomePage extends StatelessWidget {
   Widget _bigBox(
       {required Color color, required String text, required int amount}) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.only(left: 20),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: color,
