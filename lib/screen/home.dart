@@ -1,4 +1,5 @@
 import 'package:dot_test/constant/colors.dart';
+import 'package:dot_test/screen/add_expense.dart';
 import 'package:dot_test/shared_widget/big_box.dart';
 import 'package:dot_test/shared_widget/category_box.dart';
 import 'package:dot_test/shared_widget/expense_card.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _fab(),
+      floatingActionButton: _fab(context),
       body: SafeArea(
         child: ListView(
           children: [
@@ -118,10 +119,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _fab() {
+  Widget _fab(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => AddExpensePage()));
+      },
     );
   }
 }
