@@ -1,6 +1,7 @@
 import 'package:dot_test/constant/colors.dart';
 import 'package:dot_test/shared_widget/big_box.dart';
 import 'package:dot_test/shared_widget/category_box.dart';
+import 'package:dot_test/shared_widget/expense_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/parser.dart';
 
@@ -14,66 +15,64 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
-            const Text(
-              "Halo, User!",
-            ),
-            const Text("Jangan lupa ya hehe"),
+            _marginText(text: "Halo, User!"),
+            _marginText(text: "Jangan lupa ya catat keuanganmu setiap hari!"),
             _space(),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: BigBox(
-                      color: ThemeColor.blue(),
-                      text: "Pengeluaranmu Hari ini",
-                      amount: 0),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: BigBox(
-                      color: ThemeColor.green(),
-                      text: "Pengeluaranmu bulan ini",
-                      amount: 0),
-                ),
-                const SizedBox(
-                  width: 20,
-                )
-              ],
-            ),
-            _space(),
-            Container(
-              margin: const EdgeInsets.only(left: 20),
-              child: Text(
-                "Pengeluaran berdasarkan kategori",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-            ),
-            _space(),
+            _headersBox(),
+            _headline(text: "Pengeluaran berdasarkan kategori"),
             _categoryList(),
-            _list(),
+            _headline(text: "Hari ini"),
+            const ExpenseCard(),
           ],
         ),
       ),
     );
   }
 
-  Widget _list() {
-    return Card(
-      margin: const EdgeInsets.all(20),
-      child: Container(
-        padding: const EdgeInsets.all(24),
-        child: Row(children: [
-          Image.asset(
-            "res/img/pizza.png",
-            color: ThemeColor.yellow(),
+  Widget _headline({required String text}) {
+    return _marginText(
+        customMargin: const EdgeInsets.all(20),
+        text: text,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17));
+  }
+
+  Widget _marginText(
+      {required String text,
+      TextStyle? style,
+      EdgeInsetsGeometry? customMargin}) {
+    return Container(
+      margin: customMargin ??
+          const EdgeInsets.only(
+            left: 20,
           ),
-          const SizedBox(
-            width: 15,
-          ),
-          Expanded(child: Text("Ayam Geprek")),
-          Text("Rp. 150000")
-        ]),
+      child: Text(
+        text,
+        style: style,
       ),
+    );
+  }
+
+  Widget _headersBox() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: BigBox(
+              color: ThemeColor.blue(),
+              text: "Pengeluaranmu Hari ini",
+              amount: 0),
+        ),
+        Expanded(
+          flex: 1,
+          child: BigBox(
+              color: ThemeColor.green(),
+              text: "Pengeluaranmu bulan ini",
+              amount: 0),
+        ),
+        const SizedBox(
+          width: 20,
+        )
+      ],
     );
   }
 
