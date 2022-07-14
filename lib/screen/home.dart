@@ -15,8 +15,16 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
-            _marginText(text: "Halo, User!"),
-            _marginText(text: "Jangan lupa ya catat keuanganmu setiap hari!"),
+            _space(),
+            _marginText(
+                text: "Halo, User!",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            _marginText(
+                text: "Jangan lupa ya catat keuanganmu setiap hari!",
+                customMargin: const EdgeInsets.only(left: 20, bottom: 7),
+                style: TextStyle(
+                  color: Colors.grey[700],
+                )),
             _space(),
             _headersBox(),
             _headline(text: "Pengeluaran berdasarkan kategori"),
