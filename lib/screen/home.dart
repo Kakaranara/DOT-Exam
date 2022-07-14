@@ -37,14 +37,48 @@ class HomePage extends StatelessWidget {
               ],
             ),
             _space(),
+            _categoryList()
           ],
         ),
       ),
     );
   }
 
+  Widget _categoryList() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          _categoryBox(),
+          _categoryBox(),
+          _categoryBox(),
+          _categoryBox()
+        ],
+      ),
+    );
+  }
+
   Widget _categoryBox() {
-    return Column();
+    return Container(
+      margin: const EdgeInsets.only(left: 20),
+      height: 140,
+      width: 140,
+      child: Card(
+        elevation: 5,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("makanan"),
+              Text("Makanan"),
+              Text("harga"),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _bigBox(
