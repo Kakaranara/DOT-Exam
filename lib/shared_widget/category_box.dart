@@ -25,7 +25,11 @@ class CategoryBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
-                  backgroundColor: color, child: Image.asset("res/img/$image")),
+                backgroundColor: color,
+                child: Image.asset(
+                  "res/img/$image",
+                ),
+              ),
               Text(
                 tag,
                 style: Theme.of(context).textTheme.caption,
