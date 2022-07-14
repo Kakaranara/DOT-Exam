@@ -59,15 +59,15 @@ class HomePage extends StatelessWidget {
           flex: 1,
           child: BigBox(
               color: ThemeColor.blue(),
-              text: "Pengeluaranmu Hari ini",
-              amount: 0),
+              text: "Pengeluaranmu\t Hari ini",
+              amount: 1450),
         ),
         Expanded(
           flex: 1,
           child: BigBox(
               color: ThemeColor.green(),
-              text: "Pengeluaranmu bulan ini",
-              amount: 0),
+              text: "Pengeluaranmu\t bulan ini",
+              amount: 300000),
         ),
         const SizedBox(
           width: 20,

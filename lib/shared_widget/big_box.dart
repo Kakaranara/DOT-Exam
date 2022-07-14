@@ -23,12 +23,16 @@ class BigBox extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyle(color: Colors.white, fontSize: 16),
+            style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
           const SizedBox(
             height: 15,
           ),
-          Text("Rp. $amount", style: TextStyle(color: Colors.white))
+          Text("Rp. $amount",
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold))
         ],
       ),
     );
