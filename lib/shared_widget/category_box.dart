@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryBox extends StatelessWidget {
-  const CategoryBox({Key? key}) : super(key: key);
+  const CategoryBox(
+      {Key? key, required this.image, required this.color, required this.tag})
+      : super(key: key);
+
+  final String image;
+  final Color color;
+  final String tag;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +25,9 @@ class CategoryBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
-                child: Image.asset("res/img/pizza.png"),
-              ),
+                  backgroundColor: color, child: Image.asset("res/img/$image")),
               Text(
-                "Makanan",
+                tag,
                 style: Theme.of(context).textTheme.caption,
               ),
               Text(

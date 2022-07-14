@@ -37,6 +37,7 @@ dependencies:
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
   hive: ^2.2.3
+  flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +62,7 @@ flutter:
   uses-material-design: true
   assets : 
     - res/img/
+    - res/vector/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

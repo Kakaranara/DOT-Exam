@@ -1,14 +1,19 @@
 import 'package:dot_test/constant/colors.dart';
 import 'package:dot_test/shared_widget/category_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/parser.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final parser = SvgParser();
+    try {
+      parser.parse("res/img/car.svg", warningsAsErrors: true);
+    } catch (e) {
+      print("svg cant");
+    }
     return Scaffold(
       floatingActionButton: _fab(),
       body: SafeArea(
@@ -52,11 +57,25 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: const [
-          CategoryBox(),
-          CategoryBox(),
-          CategoryBox(),
-          CategoryBox(),
+        children: [
+          CategoryBox(
+            image: "pizza.png",
+            color: ThemeColor.yellow(),
+            tag: "Makanan",
+          ),
+          CategoryBox(
+            image: "wifi.png",
+            color: ThemeColor.lightBlue(),
+            tag: "Internet",
+          ),
+          CategoryBox(
+            image: "car.png",
+            color: ThemeColor.purple(),
+            tag: "Transportasion",
+          ),
+          const SizedBox(
+            width: 20,
+          ),
         ],
       ),
     );
