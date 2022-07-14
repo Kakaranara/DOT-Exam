@@ -49,9 +49,30 @@ class HomePage extends StatelessWidget {
               ),
             ),
             _space(),
-            _categoryList()
+            _categoryList(),
+            _list(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _list() {
+    return Card(
+      margin: const EdgeInsets.all(20),
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        child: Row(children: [
+          Image.asset(
+            "res/img/pizza.png",
+            color: ThemeColor.yellow(),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Expanded(child: Text("Ayam Geprek")),
+          Text("Rp. 150000")
+        ]),
       ),
     );
   }
