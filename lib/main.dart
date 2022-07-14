@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       fontFamily: "SourceSansPro",
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
-        titleTextStyle: TextStyle(color: Colors.black),
+        titleTextStyle: TextStyle(
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),
         centerTitle: true,
         elevation: 0,
       ),
